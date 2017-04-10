@@ -5,7 +5,8 @@ class PlanePosition:
     # Adding necessery requirements ex. formating and statements
 
     def show_current_position(self):
-        print ('Current position: {}'.format(self.current_position))
+
+        print('Current position: {}'.format(self.current_position))
 
     def tilt_correction(self, tilt):
         self.current_position += tilt

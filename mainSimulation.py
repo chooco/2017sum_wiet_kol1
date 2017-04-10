@@ -2,12 +2,13 @@
 import random
 import sys
 from planePosition import PlanePosition
+import time
 
 mu = 0
 sigma = 1
 
 class Simulation:
-    if __name__ == "__main__":
+    def simulate(self):
         planePosition = PlanePosition()
         print(30 * '-')
         print("   M A I N - M E N U")
@@ -29,15 +30,22 @@ class Simulation:
                 print("Starting simulator...")
                 while True:
                     tilt_corr = random.gauss(mu, sigma)
-                    planePosition.tilt_correction(tilt_corr)
-                    planePosition.correction_flight()
-                    planePosition.show_current_position()
                     to_stop = input("Do you want to brake? y-true \n\n")
                     if to_stop == "y":
                         sys.exit(0)
+                    planePosition.tilt_correction(tilt_corr)
+                    planePosition.correction_flight()
+                    planePosition.show_current_position()
+                    time.sleep(1)
+
 
             elif choice == 2:
                 print("Bye bye...")
                 sys.exit(0)
             else:
                 print("Invalid number. Byebye...")
+
+
+if __name__ == "__main__":
+    simulation = Simulation()
+    simulation.simulate()
