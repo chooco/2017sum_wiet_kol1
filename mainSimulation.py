@@ -24,14 +24,14 @@ class Simulation:
             except ValueError as e:
                 print("'%s' is not a valid integer." % e.args[0].split(": ")[1])
 
-            ### Take action as per selected menu-option ###6
+            ### Take action as per selected menu-option ###
             if choice == 1:
                 print("Starting simulator...")
                 while True:
                     tilt_corr = random.gauss(mu, sigma)
                     planePosition.tilt_correction(tilt_corr)
                     planePosition.correction_flight()
-                    planePosition.show_current_position
+                    planePosition.show_current_position()
                     to_stop = input("Do you want to brake? y-true \n\n")
                     if to_stop == "y":
                         sys.exit(0)
