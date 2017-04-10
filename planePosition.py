@@ -1,6 +1,6 @@
 class PlanePosition:
     current_position = 0
-    correction = 0.3
+    max_correction = 0.3
 
     # Adding necessery requirements ex. formating and statements
 
@@ -12,9 +12,9 @@ class PlanePosition:
         self.current_position += tilt
 
     def correction_flight(self):
-        if self.correction == self.current_position:
+        if self.max_correction == self.current_position:
             self.current_position = 0
-        elif self.current_position > self.correction:
-            self.current_position -= self.correction
+        elif self.current_position > self.max_correction:
+            self.current_position -= self.max_correction
         else:
-            self.current_position += self.correction
+            self.current_position += self.max_correction
