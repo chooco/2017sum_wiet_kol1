@@ -30,14 +30,15 @@ class Simulation:
                 print("Starting simulator...")
                 while True:
                     tilt_corr = random.gauss(mu, sigma)
+
+                    planePosition.tilt_correction(tilt_corr)
+
+                    planePosition.correction_flight()
+                    planePosition.show_current_position()
                     to_stop = input("Do you want to brake? y-true \n\n")
                     if to_stop == "y":
                         sys.exit(0)
-                    planePosition.tilt_correction(tilt_corr)
-                    planePosition.correction_flight()
-                    planePosition.show_current_position()
                     time.sleep(1)
-
 
             elif choice == 2:
                 print("Bye bye...")
